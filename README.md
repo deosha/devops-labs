@@ -1,5 +1,8 @@
 # DevOps Labs
 
+[![CI](https://github.com/deosha/devops-labs/actions/workflows/ci.yml/badge.svg)](https://github.com/deosha/devops-labs/actions/workflows/ci.yml)
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+
 Hands-on labs for the DevOps video series by Deo Shankar. Each lab rebuilds what the video explains, so you can watch a concept and then see it for yourself on a real machine.
 
 ## How it works
@@ -32,6 +35,27 @@ The course uses AWS, but the ideas are the same on any cloud. Where a lab uses a
 - **Never commit keys or credentials.** This repo's `.gitignore` blocks common key files, but check before every push.
 - **Watch your bill.** Set the budget alert in Episode 0 before launching anything.
 - **Run labs on a lab machine**, not on a server you care about. Some labs change network settings.
+
+## Continuous integration
+
+Every lab is tested on a fresh Ubuntu 24.04 machine by [GitHub Actions](.github/workflows/ci.yml) on every push, on every pull request and once a week. A green badge at the top means every lab works today.
+
+| Check | What it does |
+| --- | --- |
+| ShellCheck | Lints every shell script |
+| Internal links | Fails if a README links to a file or folder that does not exist ([`tests/check-links.py`](tests/check-links.py)) |
+| Lab 1.1 | Builds the three-machine network and checks every claim from the video: the page loads, the destination MAC is the router's, the routing tables, TTL 64 on one side of the router and 63 on the other, MAC addresses change while IP addresses stay the same, a TTL-1 ping gets "Time to live exceeded", the reply comes back with HTTP 200, and cleanup removes everything ([`tests/lab-1.1.sh`](tests/lab-1.1.sh)) |
+
+Run the same checks yourself on any Linux machine:
+
+```bash
+sudo tests/lab-1.1.sh
+python3 tests/check-links.py
+```
+
+## Licence
+
+[MIT](LICENSE). Use, adapt and share the labs freely; keep the copyright notice.
 
 ## Feedback
 
