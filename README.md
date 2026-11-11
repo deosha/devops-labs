@@ -12,6 +12,8 @@ Hands-on labs for the DevOps video series by Deo Shankar. Each lab rebuilds what
 3. **Run the lab.** Open the episode's folder below and follow its README on your lab machine.
 4. **Clean up.** Every lab ends with cleanup steps. Terminate cloud resources you no longer need.
 
+The labs follow the **100 Days of Project-Based DevOps, 2026 edition**: Day 0 is setup, Days 1–84 are the nine courses below (one episode a day), and Days 85–100 are GenAI for DevOps. Coming from the 2023 Medium post? [This map](100-days-2023-map.md) shows where each 2023 day lives now.
+
 The course uses AWS, but the ideas are the same on any cloud. Where a lab uses an AWS-only service, its README names the Azure and Google Cloud equivalents. Many early labs run on any Linux machine.
 
 ## Labs
@@ -29,6 +31,7 @@ The course uses AWS, but the ideas are the same on any cloud. Where a lab uses a
 | 7. Observability | | | Planned |
 | 8. Security and DevSecOps | | | Planned |
 | 9. Reliability, Chaos and Cost | | | Planned |
+| 10. GenAI for DevOps (Days 85–100) | | | Planned |
 
 ## Safety
 
