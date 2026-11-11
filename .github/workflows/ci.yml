@@ -1,0 +1,35 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+  schedule:
+    # Weekly, to catch changes in Ubuntu packages that break a lab
+    - cron: "17 3 * * 1"
+
+permissions:
+  contents: read
+
+jobs:
+  lint:
+    name: Lint scripts and links
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v4
+      - name: ShellCheck
+        run: shellcheck $(git ls-files '*.sh')
+      - name: Internal Markdown links
+        run: python3 tests/check-links.py
+
+  lab-1-1:
+    name: "Lab 1.1: packet path"
+    runs-on: ubuntu-24.04
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install lab tools
+        run: sudo apt-get update && sudo apt-get install -y iproute2 tcpdump curl iputils-ping
+      - name: Run the lab and check every claim from the video
+        run: sudo tests/lab-1.1.sh

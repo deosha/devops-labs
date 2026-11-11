@@ -20,7 +20,7 @@ need_root() { [ "$(id -u)" -eq 0 ] || { echo "Run with sudo." >&2; exit 1; }; }
 in_ns() { local ns=$1; shift; ip netns exec "pl-$ns" "$@"; }
 
 down() {
-  [ -f "$PIDFILE" ] && kill "$(cat "$PIDFILE")" 2>/dev/null || true
+  if [ -f "$PIDFILE" ]; then kill "$(cat "$PIDFILE")" 2>/dev/null || true; fi
   rm -f "$PIDFILE"
   for n in "${NS[@]}"; do ip netns del "pl-$n" 2>/dev/null || true; done
   rm -rf "$WEBROOT"
