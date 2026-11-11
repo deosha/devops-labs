@@ -1,0 +1,14 @@
+# Keys and credentials: never commit these
+*.pem
+*.key
+*.ppk
+id_rsa*
+id_ed25519*
+.aws/
+*.tfvars
+.env
+
+# Local and OS files
+.DS_Store
+*.swp
+__pycache__/
