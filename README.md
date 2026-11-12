@@ -58,6 +58,10 @@ sudo tests/lab-1.2.sh
 python3 tests/check-links.py
 ```
 
+## How these labs are made
+
+These labs are written with help from AI tools. Every step, command and expected output is reviewed and run by hand by Deo Shankar before it is published. On top of that, [CI](#continuous-integration) re-runs every lab on a fresh Ubuntu machine on every change and once a week, so the outputs in the READMEs and videos stay true.
+
 ## Licence
 
 [MIT](LICENSE). Use, adapt and share the labs freely; keep the copyright notice.
