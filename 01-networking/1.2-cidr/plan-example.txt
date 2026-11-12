@@ -1,0 +1,8 @@
+# Sample answer for Lab 1.2. Try your own plan first.
+vpc       10.1.0.0/16
+public-a  10.1.0.0/24
+public-b  10.1.1.0/24
+app-a     10.1.16.0/20
+app-b     10.1.32.0/20
+data-a    10.1.48.0/24
+data-b    10.1.49.0/24

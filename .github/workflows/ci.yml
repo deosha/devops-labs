@@ -33,3 +33,14 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y iproute2 tcpdump curl iputils-ping
       - name: Run the lab and check every claim from the video
         run: sudo tests/lab-1.1.sh
+
+  lab-1-2:
+    name: "Lab 1.2: IP addresses and CIDR"
+    runs-on: ubuntu-24.04
+    needs: lint
+    steps:
+      - uses: actions/checkout@v4
+      - name: Install lab tools
+        run: sudo apt-get update && sudo apt-get install -y iproute2 curl
+      - name: Run every command from the video and the plan checker
+        run: sudo tests/lab-1.2.sh
